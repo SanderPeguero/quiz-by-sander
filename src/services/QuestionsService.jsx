@@ -28,7 +28,7 @@ const getAllQuestions = async () => {
 const getRandomQuestions = async () => {
 
     const questions = await getAllQuestions()
-    const randomQuestions = sampleSize(questions, 10)
+    const randomQuestions = sampleSize(questions, 40)
 
     return randomQuestions.map(question => ({
         ...question,

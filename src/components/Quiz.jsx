@@ -32,6 +32,7 @@ const Quiz = () => {
     const [resultsVisible, setResultsVisible] = useState(false)
     const [score, setScore] = useState(0)
     const classes = useStyles()
+    const [cantidad, setcantidad] = useState(0);
 
     useEffect(() => {
 
@@ -64,7 +65,8 @@ const Quiz = () => {
 
         }
 
-        if (currentQuestionIndex + 1 !== questions.length) {
+        //if (currentQuestionIndex + 1 !== questions.length) {
+        if (currentQuestionIndex + 1 !== cantidad) {
             
             setQuestionVisible(true)
 
@@ -83,7 +85,8 @@ const Quiz = () => {
 
         if (resultsVisible) {
 
-            const percentage = ((score / questions.length) * 100).toFixed(1)
+            //const percentage = ((score / questions.length) * 100).toFixed(1)
+            const percentage = ((score / cantidad) * 100).toFixed(1)
 
             return (
                 <div>
@@ -99,7 +102,7 @@ const Quiz = () => {
 
     const nextQuestion = () => {
         
-        if(questions.length !== currentQuestionIndex){
+        if(cantidad !== currentQuestionIndex){
 
             setCurrentQuestionIndex(currentQuestionIndex + 1)
             setQuestionVisible(false)
@@ -110,7 +113,7 @@ const Quiz = () => {
 
     const backQuestion = () => {
         
-        if (currentQuestionIndex - 1 !== 0){
+        if (currentQuestionIndex !== 0){
 
             setCurrentQuestionIndex(currentQuestionIndex - 1)
             setQuestionVisible(false)
